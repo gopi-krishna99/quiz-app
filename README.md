@@ -28,7 +28,7 @@ quiz-app-new/ │── backend/ # Backend (Node.js + Express + MongoDB) │ ├
 
 ### 1️⃣ Clone the Repository  
 
-git clone https://github.com/vithin-sai/quiz-app-new.git
+git clone https://github.com/gopi-krishna99/quiz-app.git
 cd quiz-app-new
 2️⃣ Backend Setup
 
