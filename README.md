@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# 📝 Full-Stack Quiz Application  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A **Full-Stack Quiz App** built with **React.js (frontend)** and **Node.js + Express + MongoDB (backend)**. Users can take quizzes, track scores, and view a leaderboard.  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌟 Features  
 
-### `npm start`
+- ✅ User-friendly quiz-taking experience  
+- ✅ Score calculation after quiz submission  
+- ✅ Admin leaderboard view  
+- ✅ Light/Dark theme toggle  
+- ✅ Backend powered by **Node.js, Express, and MongoDB**  
+- ✅ API tested with Postman  
+- ✅ Responsive UI with CSS  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📂 Project Structure  
 
-### `npm test`
+quiz-app-new/ │── backend/ # Backend (Node.js + Express + MongoDB) │ ├── models/ # Database models │ ├── routes/ # API routes │ ├── config/ # Database connection │ ├── middleware/ # Authentication middleware │ ├── seeder.js # Script to insert sample quizzes │ ├── server.js # Main server file │ ├── .env # Environment variables │── frontend/ # Frontend (React.js) │ ├── src/ │ │ ├── components/ # Reusable components │ │ ├── pages/ # Pages (Home, QuizPage, Admin) │ │ ├── App.js # Main app component │ │ ├── index.js # Entry point │ │ ├── App.css # Styles │ ├── public/ │ ├── package.json # Frontend dependencies │── README.md # Project guide
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ Installation & Setup  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1️⃣ Clone the Repository  
 
-### `npm run eject`
+git clone https://github.com/vithin-sai/quiz-app-new.git
+cd quiz-app-new
+2️⃣ Backend Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+cd backend
+npm install   # Install dependencies
+🔹 Create .env file in backend/
+env
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+🔹 Seed Sample Quizzes into Database
+sh
+Copy
+Edit
+node seeder.js
+🔹 Start the Backend Server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+node server.js
+✅ Server should run on: http://localhost:5000/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3️⃣ Frontend Setup
 
-## Learn More
+cd ../frontend
+npm install   # Install dependencies
+npm start     # Start React app
+✅ Frontend should run on: http://localhost:3000/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+📌 API Endpoints
+Method	Endpoint	Description
+GET	/api/quizzes	Get all quizzes
+GET	/api/quiz/:id	Get a single quiz by ID
+POST	/api/quiz/submit	Submit answers & get score
+POST	/api/register	Register a new user
+POST	/api/login	Login a user & get token
+GET	/api/scores	Get leaderboard (Admin)
+📦 Dependencies
+🔹 Backend (Node.js + Express)
+json
+Copy
+Edit
+"dependencies": {
+  "express": "^4.18.2",
+  "mongoose": "^6.10.1",
+  "dotenv": "^16.0.3",
+  "cors": "^2.8.5",
+  "bcryptjs": "^2.4.3",
+  "jsonwebtoken": "^9.0.0"
+}
+🔹 Frontend (React.js)
+json
+Copy
+Edit
+"dependencies": {
+  "react": "^18.2.0",
+  "react-router-dom": "^6.10.0",
+  "axios": "^1.6.0"
+}
+🌍 Deployment Guide (Optional)
+🔹 Deploy Backend on Render
+Push code to GitHub.
+Go to Render → Click "New Web Service" → Select your repo.
+Set Build Command: npm install
+Set Start Command: node server.js
+Add Environment Variables (MONGO_URI, JWT_SECRET, PORT)
+Deploy and copy the live API URL.
+🔹 Deploy Frontend on Netlify
+Push your frontend code to GitHub.
+Go to Netlify → Click "New Site" → Import from GitHub.
+Set Build Command: npm run build
+Set Publish Directory: frontend/build
+Deploy and copy the live website URL.
+🚀 Live Project Links (After Deployment)
+Backend API → https://quiz-app-backend.onrender.com
+Frontend Website → https://quiz-app.netlify.app
+📜 License
+This project is open-source and free to use. Feel free to modify and contribute!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+if u have any issues, feel free to mail at gopij3366@gmail.com
